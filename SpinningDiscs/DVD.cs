@@ -17,7 +17,7 @@ namespace SpinningDiscs
 
         public void LaserRead()
         {
-            Console.WriteLine("Maybe someday I will be able to play the video contained within this DVD...");
+            Console.WriteLine($"Maybe someday I will be able to play the video contained within this DVD...\nBut here are the contents:\n{ReadContent(Contents)}");
         }
         // TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
         //  need to be declared separately.

@@ -16,7 +16,7 @@ namespace SpinningDiscs
 
         public void LaserRead()
         {
-            Console.WriteLine("Maybe someday I will be able to play the music contained within this CD...");
+            Console.WriteLine($"Maybe someday I will be able to play the music contained within this CD... But here are the contents:\n{ReadContent(Contents)}");
         }
         // TODO: Implement your custom interface.
 

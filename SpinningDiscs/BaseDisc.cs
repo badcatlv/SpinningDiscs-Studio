@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace SpinningDiscs
 {
@@ -37,9 +38,10 @@ namespace SpinningDiscs
             }
         }
 
-        public string Result { get; set; }
+        //public string Result { get; set; }
         public string ReadContent(List<string> strings)
         {
+            string Result = "";
             //StringBuilder sb = new StringBuilder();
             int i = 1;
             foreach (var item in strings)
@@ -51,7 +53,7 @@ namespace SpinningDiscs
             }
             //Result = sb.ToString().Trim();
             return Result;
-
+            
         }
         
 

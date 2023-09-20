@@ -1,27 +1,24 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.Text;
-
-namespace SpinningDiscs
+﻿namespace SpinningDiscs
 {
     public abstract class BaseDisc
     {
         public string Name { get; set; }
         public List<string> Contents { get; set; } = new List<string>();
         // public IEnumerable<string> Contents { get; set; } = Enumerable.Empty<string>();
-        public string Type { get; set; }
         public double StorageCapacity { get; set; }
         public double StorageUsed { get; set; }
         public double StorageAvailable { get; set; }
+        public string ContentType { get; set; }
 
 
-        public BaseDisc(string name, List<string> contents, string type, double storageCapacity)
+        public BaseDisc(string name, List<string> contents, string contentType, double storageCapacity)
         {
             Name = name;
             Contents = contents;
-            Type = type;
             StorageCapacity = storageCapacity;
             StorageUsed = 0;
             StorageAvailable = StorageCapacity - StorageUsed;
+            ContentType = contentType;
         }
 
         public void LaserData(double dataSize)
@@ -46,20 +43,20 @@ namespace SpinningDiscs
             int i = 1;
             foreach (var item in strings)
             {
-                Result += i + ": " + item +"\n";
+                Result += i + ": " + item + "\n";
                 i++;
                 //sb.Append(item);
                 //sb.Append("\n");
             }
             //Result = sb.ToString().Trim();
             return Result;
-            
+
         }
-        
+
 
         public void ReadDiscInfo()
         {
-            Console.WriteLine($"\nDisc: {Name}\nContent Length: {Contents.Count}\nContents:\n{ReadContent(Contents)}Type: {Type}\nStorage Capacity: {StorageCapacity}");
+            Console.WriteLine($"\nDisc: {Name}\nContent Length: {Contents.Count}\nContents:\n{ReadContent(Contents)}Content Type: {ContentType}\nStorage Capacity: {StorageCapacity}");
         }
 
 

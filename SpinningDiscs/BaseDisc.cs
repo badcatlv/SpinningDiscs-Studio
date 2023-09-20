@@ -1,9 +1,11 @@
-﻿namespace SpinningDiscs
+﻿using System.Text;
+
+namespace SpinningDiscs
 {
     public abstract class BaseDisc
     {
         public string Name { get; set; }
-        public List<string> Contents { get; set; }
+        public List<string> Contents { get; set; } = new List<string>();
         // public IEnumerable<string> Contents { get; set; } = Enumerable.Empty<string>();
         public string Type { get; set; }
         public double StorageCapacity { get; set; }
@@ -34,20 +36,28 @@
                 Console.WriteLine($"Data {dataSize} added. Remaining storage: {StorageAvailable}");
             }
         }
-        public string StringContents { get; set; }
-        public void ReadContent()
+
+        public string Result { get; set; }
+        public string ReadContent(List<string> strings)
         {
+            //StringBuilder sb = new StringBuilder();
             int i = 1;
-            foreach (var item in Contents)
+            foreach (var item in strings)
             {
-                Console.WriteLine($"{i}: {item}");
+                Result += i + ": " + item +"\n";
                 i++;
+                //sb.Append(item);
+                //sb.Append("\n");
             }
+            //Result = sb.ToString().Trim();
+            return Result;
+
         }
+        
 
         public void ReadDiscInfo()
         {
-            Console.WriteLine($"Disc: {Name}\nContent Length: {Contents}\nType: {Type}\nStorage Capacity: {StorageCapacity}\n{StringContents}");
+            Console.WriteLine($"\nDisc: {Name}\nContent Length: {Contents.Count}\nContents:\n{ReadContent(Contents)}Type: {Type}\nStorage Capacity: {StorageCapacity}");
         }
 
 

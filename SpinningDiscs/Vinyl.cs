@@ -8,7 +8,7 @@ namespace SpinningDiscs
 {
     public class Vinyl : BaseDisc, IOpticalDisc
     {
-        public string Type = "Viynl";
+        public string Type = "Vinyl";
         public double MaxSpeed = 78;
         public double MinSpeed = 33.33;
 

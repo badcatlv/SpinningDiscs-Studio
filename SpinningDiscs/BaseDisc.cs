@@ -21,6 +21,8 @@
             ContentType = contentType;
         }
 
+        //check capacity method
+        //check storage available method
         public void LaserData(double dataSize)
         {
             if (StorageAvailable < dataSize)
